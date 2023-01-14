@@ -1,14 +1,14 @@
-import Head from 'next/head'
-import {useState, useEffect} from 'react';
+import Head from "next/head";
+import { useState, useEffect } from "react";
 
 export default function Home() {
-
-	const [movie, setMovie] =	useState();
-
-	useEffect(() => {
-		fetch(`${process.env.API_KEY}`)
-
-	}, []);
+  const [movie, setMovie] = useState();
+  useEffect(() => {
+    console.log(process.env.API_KEY);
+  }, []);
+  useEffect(() => {
+    fetch(`${process.env.API_KEY}`);
+  }, []);
 
   return (
     <>
@@ -18,9 +18,9 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-			<main>
-				<h1>test</h1>
+      <main>
+        <h1>test</h1>
       </main>
     </>
-  )
+  );
 }
