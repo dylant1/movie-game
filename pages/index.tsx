@@ -1,18 +1,50 @@
-<<<<<<< HEAD
 import Head from 'next/head'
-=======
-import Head from "next/head";
+//import Image from 'next/image';
 import { useState, useEffect } from "react";
->>>>>>> refs/remotes/origin/main
+
+interface IMedia {
+  adult: boolean;
+  backdrop_path: string;
+  genre_ids: number[];
+  id: number;
+  original_language: string;
+  original_title: string;
+  overview: string;
+  popularity: number;
+  poster_path: string;
+  release_date: string;
+  title: string;
+  video: boolean;
+  vote_average: number;
+  vote_count: number;
+}
 
 export default function Home() {
-  const [movie, setMovie] = useState();
+  const [movie, setMovie] = useState<IMedia>();
+  let query: string = "the force awakens";
+
+  //TODO: Make this server side environment variable
+  //TODO: Do all this logic server side
   useEffect(() => {
-    console.log(process.env.API_KEY);
-  }, []);
+    fetchMovie(query);
+  }, [query]);
+
   useEffect(() => {
-    fetch(`${process.env.API_KEY}`);
-  }, []);
+    if (movie) {
+      console.log(movie);
+    }
+  }, [movie]);
+
+
+  const fetchMovie = async (query: string) => {
+    const res: Response = await fetch(
+      `https://api.themoviedb.org/3/search/movie?api_key=${process.env.NEXT_PUBLIC_API_KEY}&query=${query}`
+    );
+      const data = await res.json();
+    //only want the first result
+    setMovie(data.results[0]);
+  };
+
 
   return (
     <>
@@ -23,12 +55,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-<<<<<<< HEAD
+        {movie && (
+          <div>
+            <h1>{movie.title}</h1>
+          </div>
+        )}
 
-
-=======
-        <h1>test</h1>
->>>>>>> refs/remotes/origin/main
       </main>
     </>
   );

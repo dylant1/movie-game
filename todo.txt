@@ -1,0 +1,15 @@
+Clues:
+1. Number of letters in the movie title
+2. A pixelated image of the movie poster
+3. The actors in the movie
+4. The director of the movie
+5. The year the movie was released
+6. The genre of the movie
+7. The plot of the movie with the main characters names removed
+8. The main characters names
+9. Which streaming service the movie is on
+10. The rating of the movie
+11. The runtime of the movie
+12. The IMDB score of the movie
+13. The rotten tomatoes score of the movie
+
