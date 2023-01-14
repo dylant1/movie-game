@@ -1,6 +1,19 @@
+<<<<<<< HEAD
 import Head from 'next/head'
+=======
+import Head from "next/head";
+import { useState, useEffect } from "react";
+>>>>>>> refs/remotes/origin/main
 
 export default function Home() {
+  const [movie, setMovie] = useState();
+  useEffect(() => {
+    console.log(process.env.API_KEY);
+  }, []);
+  useEffect(() => {
+    fetch(`${process.env.API_KEY}`);
+  }, []);
+
   return (
     <>
       <Head>
@@ -10,9 +23,13 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
+<<<<<<< HEAD
 
 
+=======
+        <h1>test</h1>
+>>>>>>> refs/remotes/origin/main
       </main>
     </>
-  )
+  );
 }
